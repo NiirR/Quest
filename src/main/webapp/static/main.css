@@ -1,3 +1,6 @@
+body{
+    background-color: #b6bee1;
+}
 .bt{
         background-color: #4CAF50;
         color: white;
@@ -18,10 +21,10 @@
 
 .mainMenu{
     position: absolute;
-        font-size: 40px;
+        font-size: 54px;
     left: 25%;
         color: aliceblue;
-        text-shadow: 4px 3px green;
+        text-shadow: 4px 3px cornflowerblue;
 }
 .game{
     background-color: royalblue;
@@ -37,4 +40,42 @@
 .game:hover{
     color: white;
     background-color: darkgreen;
+}
+.qt1{
+    position: absolute;
+    left: 33%;
+    top: 1%;
+    font-size: 26px;
+    color: white;
+    text-shadow: 4px 1px black;
+}
+.btt{
+    position: absolute;
+    left: 50%;
+    top: 70%;
+}
+.name{
+    position: absolute;
+    font-size: 25px;
+    left: 55%;
+    top: 78%;
+    color: white;
+    text-shadow: 4px 3px black;
+}
+.textgame{
+    position: absolute;
+    font-size: 34px;
+    left: 35%;
+    top: 5%;
+    color: white;
+    text-shadow: 4px 3px black;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.button{
+    position: absolute;
+    top: 70%;
+    left: 35%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
