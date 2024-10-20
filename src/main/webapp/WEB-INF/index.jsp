@@ -12,7 +12,6 @@
 </head>
 <body>
 
-<%--Квест--%>
 <c:set var="ZONE0" value="<%=Area.MINE_MENU%>"/>
 <c:set var="ZONE1" value="<%=Area.ZONE1%>"/>
 <c:set var="ZONE2" value="<%=Area.ZONE2%>"/>
@@ -22,12 +21,6 @@
 <c:set var="ZONE4_1" value="<%=Area.ZONE4_1%>"/>
 <c:set var="ZONE5" value="<%=Area.ZONE5%>"/>
 <c:set var="ZONE5_1" value="<%=Area.ZONE5_1%>"/>
-
-<c:if test="${area == ZONE0}">
-    <h1 class="mainMenu">Главное меню</h1>
-    <button class="game" onclick="select('zone1')">Квест космос</button>
-    <img src="../static/img/menu.jpg">
-</c:if>
 
 
 <c:if test="${area == ZONE1}">
@@ -60,18 +53,18 @@
 <c:if test="${area == ZONE2}">
     <img src="/static/img/ufo.jpg">
     <h2 class="textgame"> Ты потерял память. Принять вызов НЛО?</h2>
-
 <div class="button">
      <button class="bt"  onclick="select('zone3')">Принять вызов</button>
      <button class="bt" onclick="select('zone3_1')">Отклонить вызов</button>
 </div>
 </c:if>
+
+
 <c:if test="${area == ZONE3_1}">
     <img src="/static/img/ufo.jpg">
     <h2 class="textgame"> Ты отклонил вызов. Поражение</h2>
-
 <div class="button">
-    <button class="bt" onclick="select('zone1')">Начать заново</button>
+    <button class="bt" onclick="restart()">Начать заново</button>
 </div>
 </c:if>
 
@@ -79,48 +72,55 @@
 <c:if test="${area == ZONE3}">
     <img src="/static/img/ufo_2.jpg">
     <h2 class="textgame">  Ты принял вызов. Поднимешся на мостик к капитану?</h2>
-
 <div class="button">
       <button class="bt" onclick="select('zone4')">Подняться на мостик</button>
       <button class="bt" onclick="select('zone4_1')">Отказатся подниматся на мостик</button>
 </div>
 </c:if>
+
+
 <c:if test="${area == ZONE4_1}">
     <img src="/static/img/ufo.jpg">
     <h2 class="textgame"> Ты не пошел на переговоры. Поражение</h2>
-
 <div class="button">
-    <button class="bt" onclick="select('zone1')">Начать заново</button>
+    <button class="bt" onclick="restart()">Начать заново</button>
 </div>
 </c:if>
+
 
 <c:if test="${area == ZONE4}">
     <img src="/static/img/ufo_3.jpg">
     <h2 class="textgame"> Ты поднялся на мостик. Ты кто?</h2>
-
 <div class="button">
    <button class="bt" onclick="select('zone5')">Рассказать правду о себе</button>
    <button class="bt" onclick="select('zone5_1')">Солгать о себе</button>
 </div>
 </c:if>
+
+
 <c:if test="${area == ZONE5_1}">
     <img src="/static/img/ufo.jpg">
     <h2 class="textgame"> Твою ложь разоблачили. Поражение</h2>
-
 <div class="button">
-   <button class="bt" onclick="select('zone1')">Начать заново</button>
+   <button class="bt" onclick="restart()">Начать заново</button>
 </div>
 </c:if>
+
 
 <c:if test="${area == ZONE5}">
     <img src="/static/img/ufo.jpg">
     <h2 class="textgame">  Тебя вернули домой. Победа</h2>
-
 <div class="button">
-   <button class="bt" onclick="select('zone1')">Начать заново</button>
-   <button class="bt" onclick="restart()">Вернутся в Меню</button>
+   <button class="bt" onclick="restart()">Начать заново</button>
+
+    <form action="init" method="get" >
+        <input type="text" hidden="hidden" name="login" value="true">
+        <button class="bt" onclick="restart()">Вернутся в меню</button>
+    </form>
 </div>
 </c:if>
+
+
 </h2>
 
     <div class="name" >
@@ -130,12 +130,14 @@
 </div>
 
 
+<%--Игра Миллионер--%>
+
 <script>
-    function select(action){
+    function select(move){
         $.ajax({
             type: 'POST',
             url: 'start',
-            data: {action: action},
+            data: {move: move},
             success: function (){
                 location.reload();
             }

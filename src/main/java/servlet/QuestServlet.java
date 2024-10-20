@@ -25,7 +25,7 @@ public class QuestServlet extends HttpServlet {
         if(session.getAttribute("start") == null){
             session.setAttribute("start", true);
             session.setAttribute("username", null);
-            session.setAttribute("area", Area.MINE_MENU);
+            session.setAttribute("area", Area.ZONE1);
         }
 
 
@@ -33,10 +33,10 @@ public class QuestServlet extends HttpServlet {
         getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(reg,resp);
     }
 
-    protected void doPost(HttpServletRequest req , HttpServletResponse resp) throws IOException {
-        HttpSession session = req.getSession();
-        String zone = req.getParameter("action");
-        username = req.getParameter("name");
+    protected void doPost(HttpServletRequest reg , HttpServletResponse resp) throws IOException {
+        HttpSession session = reg.getSession();
+        String zone = reg.getParameter("move");
+        username = reg.getParameter("name");
         if(username != null) {
             session.setAttribute("username", username);
         }
@@ -46,7 +46,6 @@ public class QuestServlet extends HttpServlet {
         }
         else  {
             switch (zone) {
-                case "zone1" -> session.setAttribute("area", Area.ZONE1);
                 case "zone2" -> session.setAttribute("area", Area.ZONE2);
                 case "zone3" -> session.setAttribute("area", Area.ZONE3);
                 case "zone3_1" -> session.setAttribute("area", Area.ZONE3_1);
