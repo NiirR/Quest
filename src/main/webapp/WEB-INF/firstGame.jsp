@@ -64,7 +64,9 @@
     <img src="/static/img/ufo.jpg">
     <h2 class="textgame"> Ты отклонил вызов. Поражение</h2>
 <div class="button">
+    <form>
     <button class="bt" onclick="restart()">Начать заново</button>
+    </form>
 </div>
 </c:if>
 
@@ -83,7 +85,9 @@
     <img src="/static/img/ufo.jpg">
     <h2 class="textgame"> Ты не пошел на переговоры. Поражение</h2>
 <div class="button">
+    <form>
     <button class="bt" onclick="restart()">Начать заново</button>
+    </form>
 </div>
 </c:if>
 
@@ -102,7 +106,9 @@
     <img src="/static/img/ufo.jpg">
     <h2 class="textgame"> Твою ложь разоблачили. Поражение</h2>
 <div class="button">
+    <form>
    <button class="bt" onclick="restart()">Начать заново</button>
+    </form>
 </div>
 </c:if>
 
@@ -111,8 +117,9 @@
     <img src="/static/img/ufo.jpg">
     <h2 class="textgame">  Тебя вернули домой. Победа</h2>
 <div class="button">
+    <form>
    <button class="bt" onclick="restart()">Начать заново</button>
-
+    </form>
     <form action="init" method="get" >
         <input type="text" hidden="hidden" name="login" value="true">
         <button class="bt" onclick="restart()">Вернутся в меню</button>

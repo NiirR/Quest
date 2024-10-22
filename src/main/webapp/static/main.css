@@ -21,6 +21,15 @@
     color: white;
     text-align: center;
 }
+
+.eror{
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: red;
+}
 .loginButton{
     padding: 7px 20px;
 }
@@ -114,7 +123,7 @@ form{
 
 .Mill{
     position: absolute;
-    top: 60%;
+    top: 74%;
     left: 35%;
     font-size: 30px;
     -ms-transform: translate(-50%, -50%);
@@ -125,10 +134,46 @@ form{
     color: white;
     text-shadow: 5px 1px black;
 }
+.quest{
+    position: absolute;
+    top: 47%;
+    left: 35%;
+    font-size: 30px;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 800px;
+    height: 80px;
+    color: white;
+    text-shadow: 5px 1px black;
+    background-image: url("/static/img/quest.jpg");
+}
 .button_Mill{
     border-radius: 40px;
     padding: 10px 80px;
     min-width: 100%;
     text-align: center;
     top: 80%;
+    font-size: 18px;
+}
+.ru{
+    position: absolute;
+    left: 55%;
+    top: 5%;
+    font-size: 24px;
+    color: white;
+}
+.imgM{
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    width: 10%;
+    height: 20%;
+}
+.imgQ{
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 15%;
+    height: 28%;
 }

@@ -1,28 +1,35 @@
 package servlet;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
+import model.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "InitServlet" , value = "/init")
 public class InitServlet extends HttpServlet {
-
+User user = new User("test" , "1");
 
     @Override
     protected void doGet(HttpServletRequest reg , HttpServletResponse resp) throws ServletException, IOException {
-        reg.setAttribute("login", false);
+
+        reg.setAttribute("login", null);
         String username = reg.getParameter("username");
         String password = reg.getParameter("password");
-        boolean login = Boolean.parseBoolean(reg.getParameter("login"));
+        String login = reg.getParameter("login");
 
-
-        if(username != null && password != null || login) {
+        if (username != null && password != null) {
+            if (!user.getUserName().equals(username) || !user.getPassword().equals(password)) {
+                reg.setAttribute("login", false);
+            }
+            if (username.equals(user.getUserName()) && password.equals(user.getPassword())) {
+                reg.setAttribute("login", true);
+            }
+        }
+        if(login != null){
             reg.setAttribute("login", true);
         }
         getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(reg,resp);

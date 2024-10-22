@@ -15,5 +15,7 @@ public enum Questions {
     VOPROS12,
     VOPROS13,
     VOPROS14,
-    VOPROS15;
+    VOPROS15,
+    FAIL,
+    WIN;
 }

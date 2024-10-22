@@ -15,7 +15,7 @@
 <h1 class="login_M">Главное меню</h1>
 <div class=login>
 
-  <c:if test="${login == false}">
+  <c:if test="${login != true }">
   <form action="init">
     Логин
   <br>
@@ -29,18 +29,21 @@
     </form>
   </c:if>
 </div>
+<c:if test="${login == false}">
+  <h2 class="eror">Неверный логин или пароль</h2>
+</c:if>
+
 <img src="../static/img/menu.jpg">
 <br><br><br>
 <c:if test="${login == true}">
-<div class="login">
-  <form action="start" method="get" >
-    <button class="game">Квест космос</button>
+  <form action="start" method="get">
+    <input type="image" src="../static/img/q.png" onclick="" class="imgQ">
   </form>
   <br><br>
-  <form action="mill" >
-    <button class="game">Миллионер</button>
+  <form action="mill" method="get">
+    <input type="image" src="../static/img/m.png" onclick="" class="imgM">
   </form>
-</div>
+
 </c:if>
 
 </body>

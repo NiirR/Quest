@@ -30,7 +30,7 @@ public class QuestServlet extends HttpServlet {
 
 
 
-        getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(reg,resp);
+        getServletContext().getRequestDispatcher("/WEB-INF/firstGame.jsp").forward(reg,resp);
     }
 
     protected void doPost(HttpServletRequest reg , HttpServletResponse resp) throws IOException {
